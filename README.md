@@ -1,5 +1,5 @@
-homework-project-jfxutils
-=========================
+homework-project-jfxutils-2026
+==============================
 
 JavaFX utility classes for the Software Engineering and Technologies homework project.
 
