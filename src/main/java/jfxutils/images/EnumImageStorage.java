@@ -3,7 +3,7 @@ package jfxutils.images;
 import javafx.scene.image.Image;
 
 import java.lang.System.Logger;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,11 +30,11 @@ import java.util.Optional;
  *
  * @param <T> an enum whose constants are represented by PNG images
  */
-public class EnumImageStorage<T extends Enum<?>> implements ImageStorage<T> {
+public class EnumImageStorage<T extends Enum<T>> implements ImageStorage<T> {
 
     private static final Logger logger = System.getLogger(EnumImageStorage.class.getName());
 
-    private final Map<T, Image> map = new HashMap<>();
+    private final Map<T, Image> map;
 
     /**
      * Creates an {@code EnumImageStorage} instance for the enum specified.
@@ -42,6 +42,7 @@ public class EnumImageStorage<T extends Enum<?>> implements ImageStorage<T> {
      * @param enumClass a {@code Class} object representing an enum
      */
     public EnumImageStorage(Class<T> enumClass) {
+        map = new EnumMap<>(enumClass);
         var path = enumClass.getPackage().getName().replace(".", "/");
         for (var constant : enumClass.getEnumConstants()) {
             var url = String.format("%s/%s.png", path, constant.name().toLowerCase());
