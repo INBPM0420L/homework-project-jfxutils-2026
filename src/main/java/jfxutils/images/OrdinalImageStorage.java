@@ -53,7 +53,7 @@ public class OrdinalImageStorage implements ImageStorage<Integer> {
 
     @Override
     public Optional<Image> get(Integer index) {
-        return 0 <= index && index < images.length ? Optional.of(images[index]) : Optional.empty();
+        return 0 <= index && index < images.length ? Optional.ofNullable(images[index]) : Optional.empty();
     }
 
 }
