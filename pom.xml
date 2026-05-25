@@ -76,6 +76,7 @@
                 <configuration>
                     <links>
                         <link>https://inbpm0420l.github.io/homework-project-utils-2026/javadoc/</link>
+                        <link>https://openjfx.io/javadoc/${javafx.version}/</link>
                     </links>
                 </configuration>
             </plugin>
